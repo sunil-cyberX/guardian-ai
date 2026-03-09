@@ -123,10 +123,10 @@ async def analyze_transaction(request: TransactionRequest):
             reasons=["ML model analysis", "Amount analysis"],
             processing_time_ms=round(processing_time, 2)
         )
-    except Exception as e:
-        logger.error(f"Analysis error: {e}")
+    logger.error(f"Analysis error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
-      @app.get("/")
+
+@app.get("/")
 async def root():
     return {
         "name": "Guardian AI v8.0",
